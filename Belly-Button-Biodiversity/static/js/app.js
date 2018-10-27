@@ -31,15 +31,16 @@ function buildCharts(sample) {
   x: data.otu_ids,
   y: data.sample_values,
   mode: 'markers',
+  text: data.otu_labels,
   marker: {
     color: data.otu_ids,
     size: data.sample_values,
-    text: data.otu_labels
+
+    colorscale: "Earth"
   }
 };
 var trace1 = [trace1];
 var layout = {
-  title: 'Marker Size and Color',
   showlegend: false,
   height: 600,
   width: 1500
@@ -59,13 +60,8 @@ Plotly.newPlot('bubble', trace1, layout);
       showlegend: true,
     };
     Plotly.newPlot('pie', data, layout);
-    
   }
 )}
-
-
-
-
 
 function init() {
   // Grab a reference to the dropdown select element
